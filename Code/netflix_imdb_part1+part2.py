@@ -47,16 +47,16 @@ ntf = pd.read_csv('netflix_titles.csv')
 ntf.rename(columns={'release_year':'year'},inplace=True)
 ntf.head()
 
-IMDb_movie = pd.read_csv(abspath+'IMDb movies.csv')
+IMDb_movie = pd.read_csv('IMDb movies.csv')
 IMDb_movie.head()
 
-IMDb_names = pd.read_csv(abspath+'IMDb names.csv')
+IMDb_names = pd.read_csv('IMDb names.csv')
 IMDb_names.head()
 
-IMDb_ratings = pd.read_csv(abspath+'IMDb ratings.csv')
+IMDb_ratings = pd.read_csv('IMDb ratings.csv')
 IMDb_ratings.head()
 
-IMDb_titles = pd.read_csv(abspath+'IMDb title_principals.csv')
+IMDb_titles = pd.read_csv('IMDb title_principals.csv')
 IMDb_titles.head()
 
 IMDb = pd.merge(IMDb_movie,IMDb_ratings,on ='imdb_title_id')
@@ -534,7 +534,7 @@ lda_model = gensim.models.LdaMulticore(corpus=corpus,id2word=dic,
 # pprint(lda_model.print_topics())
 # doc_lda = lda_model[corpus]
 
-!pip install -U pyLDAvis
+# !pip install -U pyLDAvis
 import pyLDAvis
 import pyLDAvis.gensim_models as gensimvis
 # import pyLDAvis.gensim

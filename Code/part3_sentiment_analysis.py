@@ -7,12 +7,12 @@ Original file is located at
     https://colab.research.google.com/drive/1HIC1rFauD9Uj_b_8C6leNwlSSSuo2Y3r
 """
 
-from google.colab import drive
-import warnings
-warnings.filterwarnings('ignore')
-drive.mount('/content/drive')
+# from google.colab import drive
+# import warnings
+# warnings.filterwarnings('ignore')
+# drive.mount('/content/drive')
 
-abspath='/content/drive/MyDrive/capstone-netflix/'
+# abspath='/content/drive/MyDrive/capstone-netflix/'
 
 import tensorflow as tf
 import pandas as pd
@@ -45,7 +45,7 @@ from keras.layers import LSTM,Dense,Bidirectional,Input
 from keras.models import Model
 from tensorflow.keras.optimizers import Adam
 
-review = pd.read_csv(abspath+"IMDB review.csv")
+review = pd.read_csv("IMDB review.csv")
 
 sns.set(style = "darkgrid" , font_scale = 1.2)
 sns.countplot(review.sentiment)
@@ -219,8 +219,8 @@ plt.ylabel("Actual")
 
 """BERT"""
 
-!pip install transformers sentencepiece
-!pip install tokenizers
+# !pip install transformers sentencepiece
+# !pip install tokenizers
 from tokenizers import BertWordPieceTokenizer
 import transformers
 tokenizer = transformers.DistilBertTokenizer.from_pretrained('distilbert-base-uncased' , lower = True)
@@ -243,7 +243,7 @@ def fast_encode(texts, tokenizer):
     
     return np.array(all_ids)
 
-review = pd.read_csv(abspath+"IMDB review.csv")
+review = pd.read_csv("IMDB review.csv")
 review.sentiment = [ 1 if each == "positive" else 0 for each in review.sentiment]
 train_review,test_review,train_y,test_y  = train_test_split(review['review'],review['sentiment'],test_size = 0.2)
 
